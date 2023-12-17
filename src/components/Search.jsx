@@ -7,19 +7,14 @@ class Search extends Component {
   }
 
   handleKey = (e) => {
-    const { search, type } = this.state
-
     if (e.key === "Enter") {
-      console.log(this.props.searchMovies)
-      this.props.searchMovies(search, type)
+      this.props.searchMovies(this.state.search, this.state.type)
     }
   }
 
   handleFilter = (e) => {
-    const { search, type } = this.state
-
     this.setState({ type: e.target.dataset.type }, () => {
-      this.props.searchMovies(search, type)
+      this.props.searchMovies(this.state.search, this.state.type)
     })
   }
 
